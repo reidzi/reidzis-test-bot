@@ -48,12 +48,13 @@ public class MySuperBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.getMessage() != null && update.getMessage().hasText()) {
 
-            long chat_id = update.getMessage().getChatId();
             try {
-                if (chat_id != ownerid) {
-                    execute(new SendMessage(String.valueOf(chat_id), "Вам тут не рады"));
+                if (update.getMessage().getChatId() != ownerid) {
+                    execute(new SendMessage(String.valueOf(update.getMessage().getChatId()), "Вам тут не рады"));
                     execute(new SendMessage(String.valueOf(ownerid), "Кто-то ломится"));
                 }
+
+                String ansver = "";
 
                 switch (update.getMessage().getText().toUpperCase()) {
                     case ("ФАЙЛЫ") -> {
@@ -84,6 +85,8 @@ public class MySuperBot extends TelegramLongPollingBot {
             }
         }
     }
+
+
 
     {TimerTask timerTask = new TimerTask() {
 

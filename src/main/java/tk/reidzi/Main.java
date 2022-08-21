@@ -1,6 +1,6 @@
 package tk.reidzi;
 
-import lombok.Getter;
+import lombok.*;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -13,16 +13,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 
 public class Main {
-    @Getter
-    private static String token;
-    @Getter
-    private static String username;
-    @Getter
-    private static String pathtobackup;
-    @Getter
-    private static long ownerid;
-    @Getter
-    static final String dbpath = "D:/rstat";
+
+
+    @Getter private static String token;
+    @Getter private static String username;
+    @Getter private static String pathtobackup;
+    @Getter private static long ownerid;
+    @Getter static final String dbpath = "D:/rstat";
     public static void main(String[] args) throws TelegramApiException {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -66,3 +63,4 @@ public class Main {
 //    }
 //    public static long getOwnerid() {return ownerid;}
 }
+
